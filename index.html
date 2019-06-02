@@ -4,20 +4,53 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
-    <title>Document</title>
+    <title>PDFFiller homeworks</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
+        body {
+            background-color: #222;
+            color: green
+        }
+        .caption {
+            color: orange;
         }
 
-        div > div {
-            opacity: .5;
+        .pseudo-link {
+            color: limegreen;
+            cursor: pointer;
+        }
+        .pseudo-link:hover {
+            text-decoration: underline;
+        }
+        .pseudo-link::before {
+            content: '\261E';
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        a, .link {
+            color: fuchsia;
+        }
+        a:visited, .link:visited {
+            color: rgb(201, 0, 201);
+        }
+
+        .copy {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
         }
     </style>
 </head>
 <body>
-<div class="scene"></div>
+    <div class="copy">&copy; Антон Карнаухов, 2019</div> 
+    <h3 class="caption">Открой консоль и кликни в списке, чтобы увидеть результат</h3>
+
+    <h2>Домашки:</h2>
+    <ul>
+        <li><span class="pseudo-link" onclick="runHomework(1)">Запустить домашку 1 недели</span> (скачать: <a href="./week_1.js" target="_blank">raw week_1.js</a>)</li>
+        <li><span class="pseudo-link" onclick="runHomework('next')">Следующая неделя</span></li>
+    </ul>
 <script src="index.js"></script>
+<script src="week_1.js"></script>
 </body>
 </html>
