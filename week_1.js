@@ -16,6 +16,16 @@ difference([2, 1, 5], [2, 3])
  * метод принимает массив обьектов array и ключ value по которому нужно эти обьекты сгруппировать
  */
 function groupBy(array, value) {
+
+  return array.reduce((grouped, elem) => {
+    const groupKey = elem[value];
+    grouped[groupKey] = (grouped[groupKey] || []).concat(elem);
+
+    return grouped;
+  }, {});
+
+/* 
+  // Альтернативное решение через forEach()
   const grouped = {};
 
   array.forEach(child => {
@@ -27,6 +37,7 @@ function groupBy(array, value) {
   })
 
   return grouped;
+*/
 }
 
 groupBy([{ gender: 'male', name: 'Max'}, { gender: 'male', name: 'Fred'}, { gender: 'female', name: 'Jane'}], 'gender'); 
@@ -46,7 +57,7 @@ function flatten(array) {
 /* 
   // Альтернативное решение с mdn (без спред-оператора)
   return array.reduce((flattened, element) => flattened.concat(element), [])
- */
+*/
 
 /* 
   // Альтернативное решение перебором:
@@ -70,7 +81,7 @@ function flatten(array) {
   });
   
   return flattened;
- */
+*/
 }
 
 flatten([1, [2, [3, [4]], 5]]);
