@@ -21,7 +21,7 @@ function groupBy(array, value) {
   array.forEach(child => {
     const groupKey = child[value];
 
-    if (!grouped[groupKey]) grouped[groupKey] = []; // кля каждого первого уникального значения поля, по которому группируем, создаём массив
+    if (!grouped[groupKey]) grouped[groupKey] = []; // для каждого первого уникального значения поля, по которому группируем, создаём массив
 
     grouped[groupKey].push(child);
   })
@@ -45,7 +45,7 @@ function flatten(array) {
 
 /* 
   // Альтернативное решение с mdn (без спред-оператора)
-  return array.reduce((flattened, element) => flatten.concat(element), [])
+  return array.reduce((flattened, element) => flattened.concat(element), [])
  */
 
 /* 
